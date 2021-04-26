@@ -1,4 +1,4 @@
-from statistics import mean, median, variance, correlation,covariance
+from statistics import median, mean, variance, correlation, covariance
 import csv
 import numpy
 
@@ -33,14 +33,13 @@ def run_analysis():
     file_path = './winequality.csv'
     data = load_data(file_path)
     print("corra")
-    #print(correlation([1,2,4,5,8],[5,20,40,80,100]))
-    #print(variance([1,2,4,5,8])**0.5)
-    #print(variance([5,20,40,80,100])**0.5)
-    
+    # print(correlation([1,2,4,5,8],[5,20,40,80,100]))
+    # print(variance([1,2,4,5,8])**0.5)
+    # print(variance([5,20,40,80,100])**0.5)
 
-    print(correlation(data["free sulfur dioxide"],data["total sulfur dioxide"]))
-    print(numpy.correlate(data["free sulfur dioxide"],data["total sulfur dioxide"]))
-    #print(correlation(data["total sulfur dioxide"]))
+    print(correlation(data["free sulfur dioxide"], data["total sulfur dioxide"]))
+    print(numpy.correlate(data["free sulfur dioxide"], data["total sulfur dioxide"]))
+    # print(correlation(data["total sulfur dioxide"]))
 
     # first way of printing. Everything casted to string, and spaces put automatically between passed values.
     print('Number of features:', len(data))
@@ -49,8 +48,8 @@ def run_analysis():
         # Format function fills {} with values passed as arguments. It has nice applications for better printing,
         # like limiting number of digits for floats or other formatting tools.
         print('"{}". Mean: {:3.2f}, Median: {}, Std: {}'.format(
-            feature_name, mean(list_of_values), median(list_of_values), variance(list_of_values)**0.5))
-    
+            feature_name, mean(list_of_values), median(list_of_values), variance(list_of_values) ** 0.5))
+
     # here you should compute correlations. Be careful, pair should be sorted before printing
     strongest_pair = ("aaa", "bbb")
     high_correlation = -0.9
