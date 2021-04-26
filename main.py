@@ -36,7 +36,6 @@ def run_analysis():
     # print(correlation([1,2,4,5,8],[5,20,40,80,100]))
     # print(variance([1,2,4,5,8])**0.5)
     # print(variance([5,20,40,80,100])**0.5)
-
     print(correlation(data["free sulfur dioxide"], data["total sulfur dioxide"]))
     print(numpy.correlate(data["free sulfur dioxide"], data["total sulfur dioxide"]))
     # print(correlation(data["total sulfur dioxide"]))
@@ -47,7 +46,7 @@ def run_analysis():
         # second way of printing. We print single string after format function.
         # Format function fills {} with values passed as arguments. It has nice applications for better printing,
         # like limiting number of digits for floats or other formatting tools.
-        print('"{}". Mean: {:3.2f}, Median: {}, Std: {}'.format(
+        print('"{}". Mean: {:3.2f}, Median: {}, Std: {:.4f}'.format(
             feature_name, mean(list_of_values), median(list_of_values), variance(list_of_values) ** 0.5))
 
     # here you should compute correlations. Be careful, pair should be sorted before printing
@@ -61,6 +60,10 @@ def run_analysis():
     print('The weakest linear relationship is between: "{}","{}". '
           'The value is: {}'.format(*weakest_pair, low_correlation))  # * converts list to arguments.
     # Line 53 is equivalent to line 48, this is just other way to use list as arguments
+
+    #for feature_name1, list_of_values1 in sorted(data.items()):
+     #   for feature_name2, list_of_values2 in sorted(data.items()):
+
 
 
 if __name__ == '__main__':
