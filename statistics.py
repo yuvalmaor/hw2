@@ -1,3 +1,4 @@
+import math
 def median(list_of_values):
     sorted_list = sorted(list_of_values)
     center_index = int(len(list_of_values) / 2)  # round to int required because division always produces float
@@ -27,13 +28,14 @@ def covariance(first_list_of_values, second_list_of_values):
     mean_first = mean(first_list_of_values)
     mean_second = mean(second_list_of_values)
     for i in range(len(first_list_of_values)):
-        for j in range(len(second_list_of_values)):
-            sum = sum + (first_list_of_values[i] - mean_first) * (second_list_of_values[j] - mean_second)
+        
+        sum = sum + (first_list_of_values[i] - mean_first) * (second_list_of_values[i] - mean_second)
 
-    return sum/len(first_list_of_values)
+    return sum/(len(first_list_of_values)-1)
 
 
 def correlation(first_list_of_values, second_list_of_values):
     result = 0
+    mycovariance=covariance(first_list_of_values, second_list_of_values)
     # Place your code here
-    return result
+    return float(covariance(first_list_of_values, second_list_of_values))/(math.sqrt(variance(first_list_of_values))*math.sqrt(variance(first_list_of_values)))
